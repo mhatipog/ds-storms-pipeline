@@ -45,6 +45,25 @@ def test_baseline_recovery_source_subset_without_false_certification():
     assert "partial" in r["source_catalog_completeness"]
 
 
+def test_zero_hypothetical_unplanned_work_is_not_claimed_as_completed():
+    """A planned replay is not a Databricks launch or verified output."""
+    r = replay_recovery(SEED, START, END)
+    assert r["hypothetical_work_planned"] == 5
+    assert r["hypothetical_work_unplanned"] == 0
+    assert r["operational_work_executed"] == 0
+    assert r["operational_work_verified"] == 0
+    assert r["actual_queue_pending_at_window_end"] == 5
+    assert r["queue"]["state"] == "coverage_unestablished"
+
+
+def test_cost_budget_never_drops_unplanned_work():
+    r = replay_recovery(SEED, START, END, max_heavy_batches_per_day=1)
+    assert r["hypothetical_heavy_batches"] == 1
+    assert r["hypothetical_work_planned"] + r["hypothetical_work_unplanned"] == r["recorded"]
+    assert r["hypothetical_work_unplanned"] > 0
+    assert r["actual_queue_pending_at_window_end"] == r["recorded"]
+
+
 def test_weak_latest_only_feed_can_not_recover_lost_intermediates_by_itself():
     r=replay_recovery(SEED,START,END,archive_availability_lag_minutes=1440)
     assert r["discovery_channel_counts"]=={"feed":5,"archive":0} or r["not_discovered"]>0
