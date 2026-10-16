@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "scope_start": "2026-09-24T00:00:00Z",
+  "scope_until": "2026-10-02T00:00:00Z",
+  "source_description": "Curated, non-exhaustive sample of NHC/CPHC 2026 archival products for 2026-09-24 and Nolo on 2026-10-01, verified through indexed official NOAA content or directory evidence. Not an exhaustive NOAA archive fetch.",
+  "source_assurance": "selected_noaa_archive_pages_or_directory_index",
+  "catalog_completeness": "partial_22_selected_products_two_noncontiguous_days",
+  "expected_advisories": [
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.public.016.shtml",
+      "product_id": "16",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep16/ep162026.public.016.shtml",
+      "product_id": "16",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.fstadv.014.shtml",
+      "product_id": "14",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text_forecast_advisory"
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.public.017.shtml",
+      "product_id": "17",
+      "product_kind": "regular",
+      "evidence_level": "noaa_directory_index"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.015.shtml",
+      "product_id": "15",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep16/ep162026.fstadv.017.shtml",
+      "product_id": "17",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text_forecast_advisory"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.fstadv.015.shtml",
+      "product_id": "15",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text_forecast_advisory"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T12:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.public_a.015.shtml",
+      "product_id": "15A",
+      "product_kind": "intermediate",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.public.018.shtml",
+      "product_id": "18",
+      "product_kind": "regular",
+      "evidence_level": "noaa_directory_index"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.016.shtml",
+      "product_id": "16",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep16/ep162026.fstadv.018.shtml",
+      "product_id": "18",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text_forecast_advisory"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.public.016.shtml",
+      "product_id": "16",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T18:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.016.shtml",
+      "product_id": "16A",
+      "product_kind": "intermediate",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T18:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.public_a.016.shtml",
+      "product_id": "16A",
+      "product_kind": "intermediate",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T21:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.017.shtml",
+      "product_id": "17",
+      "product_kind": "regular",
+      "evidence_level": "noaa_discussion_and_archive_index"
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T21:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep16/ep162026.fstadv.019.shtml",
+      "product_id": "19",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text_forecast_advisory"
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T21:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.public.017.shtml",
+      "product_id": "17",
+      "product_kind": "regular",
+      "evidence_level": "noaa_live_public_advisory_and_archive_index"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T09:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.043.shtml",
+      "product_id": "43",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T12:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.043.shtml",
+      "product_id": "43A",
+      "product_kind": "intermediate",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T15:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.044.shtml",
+      "product_id": "44",
+      "product_kind": "regular",
+      "evidence_level": "noaa_live_product_and_directory_index"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T18:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.044.shtml",
+      "product_id": "44A",
+      "product_kind": "intermediate",
+      "evidence_level": "noaa_page_text"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T21:00:00Z",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.045.shtml",
+      "product_id": "45",
+      "product_kind": "regular",
+      "evidence_level": "noaa_page_text"
+    }
+  ]
+}

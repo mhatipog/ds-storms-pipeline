@@ -1,0 +1,7 @@
+[
+  {
+    "start": "2026-09-24T03:30:00Z",
+    "until": "2026-09-24T18:31:00Z",
+    "evidence_note": "Approximate counterfactual window from OCHA-DAP/ds-storms-pipeline PR #53. The recovery report uses 'about 03:30 to 18:30 UTC'; the extra minute deliberately includes boundary 18:30 for sensitivity, not proof it failed."
+  }
+]
