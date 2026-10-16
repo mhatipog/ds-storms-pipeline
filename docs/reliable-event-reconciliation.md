@@ -149,3 +149,18 @@ verified bounded source window, no false report of success with unverified
 coverage, and deterministic recovery under tested, documented failure
 assumptions. A universal guarantee of no missed NOAA advisories is impossible
 without an actually complete and continuously available independent source.
+
+### Source version caveat
+
+If an independently retrieved NOAA source body has a trusted SHA-256 digest,
+include it as `content_sha256` (64 hex characters) on an ingested product.
+The queue fingerprints it alongside the storm, nominal issuance time,
+product identifier and source URL. A **different hash for the same identity
+is quarantined** rather than silently replacing processed input.
+Products with only URLs and no source-body hashes cannot detect revisions
+published at the same URL; their provenance is explicitly weaker.
+
+The `wsp` queue namespace currently provides isolation only, not a complete
+WSP data model. Real WSP archives and issuance cycles do not necessarily map
+to per-storm advisory IDs, so the full identity and completion contract for
+WSP must be reviewed separately before any production connection.
