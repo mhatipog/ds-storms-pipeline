@@ -310,8 +310,10 @@ def test_postgres_collector_uses_read_only_transaction_and_selects_only(monkeypa
     assert snapshot["completion_scanned"]
     assert snapshot["snapshot_assurance"] == "database_read_only"
     assert set(snapshot["scanned_stages"]) == set(TABLES)
-    assert statements[0] == "SET TRANSACTION READ ONLY"
-    assert all(s.startswith(("SET TRANSACTION READ ONLY", "SELECT")) for s in statements)
+    assert statements[0] == (
+        "SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY"
+    )
+    assert all(s.startswith(("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY", "SELECT")) for s in statements)
 
 
 def test_collector_skips_nonexistent_tables_without_missing_claim(monkeypatch):
