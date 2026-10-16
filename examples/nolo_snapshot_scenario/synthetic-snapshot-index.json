@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "mode": "synthetic_scenario",
+  "purpose": "Four simulated reduced-schedule feed captures; NOT actual NOAA files or OCHA poll logs.",
+  "snapshots": [
+    {
+      "path": "synthetic-capture-0330.json",
+      "observed_at": "2026-10-01T03:30:00Z",
+      "sha256": "f80ba605dcf225251c106db765b6cd79cb84428721b159bbc532d1cd06ea4baf",
+      "source_url": null
+    },
+    {
+      "path": "synthetic-capture-0930.json",
+      "observed_at": "2026-10-01T09:30:00Z",
+      "sha256": "954d65a0c896106cf492b9181356e2ece6bdbc64233c8848ab1bcc490d51fb68",
+      "source_url": null
+    },
+    {
+      "path": "synthetic-capture-1530.json",
+      "observed_at": "2026-10-01T15:30:00Z",
+      "sha256": "9dced885286d3b889a18b50d80503c9c20afeb3f33560a45936ea0c0a5ce7fc0",
+      "source_url": null
+    },
+    {
+      "path": "synthetic-capture-2130.json",
+      "observed_at": "2026-10-01T21:30:00Z",
+      "sha256": "8312967f042248df9b6e0b4826215ab58f65a1487f2717c8c659f07455ed8549",
+      "source_url": null
+    }
+  ]
+}

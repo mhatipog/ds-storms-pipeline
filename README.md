@@ -307,3 +307,16 @@ collector. It is **not part of the scheduled production workflow** and does
 not trigger operational decisions.
 
 See [auditor usage, limitations, and replay instructions](docs/nhc-advisory-audit.md).
+
+
+### NOAA CurrentStorms historical snapshot evidence (experimental)
+
+The [offline evidence reconstructor](docs/archived-snapshot-evidence.md) parses the
+[documented NOAA CurrentStorms feed](https://www.nhc.noaa.gov/productexamples/)
+and reconciles hashed captures against source-listed public advisories. An
+explicitly opt-in, NOAA-only harvester can download archived JSON when the
+NOAA host is reachable. The bundled 2026 example snapshots are **synthetic**;
+the source catalog uses manually reviewed NOAA archive identities.
+**No actual October 2026 CurrentStorms snapshots or OCHA production records
+have been retrieved or validated.** Historical capture times and actual
+first-availability remain unknown; no backfills or production integrations run.
