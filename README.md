@@ -295,3 +295,15 @@ In `scripts/`:
   dateline without any polygon vertex at ±180°, so its country bbox
   spans ~351° "the long way around" and rio.clip's pixel window misses
   the actual islands. Affects only KIR exposure.
+
+
+## Independent NHC advisory completeness audit (experimental)
+
+A **read-only, opt-in** auditor for comparing an externally reviewed NHC advisory
+manifest with the pipeline's raw tracks, buffers, exposures, and issuance-wide
+completion markers. It includes a clearly labeled *synthetic* replay of the
+September 2026 incident, deterministic tests, and an optional PostgreSQL
+collector. It is **not part of the scheduled production workflow** and does
+not trigger operational decisions.
+
+See [auditor usage, limitations, and replay instructions](docs/nhc-advisory-audit.md).

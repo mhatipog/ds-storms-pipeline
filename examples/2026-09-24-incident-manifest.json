@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "source_description": "ILLUSTRATIVE reconstruction from OCHA PR #53 incident narrative; not verified against the NHC archive per-advisory",
+  "incident_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+  "disclaimer": "This is a synthetic historical scenario, NOT a production database dump or independently retrieved NHC records.",
+  "expected_advisories": [
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers",
+        "observed_buffers",
+        "forecast_only_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T00:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T06:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T12:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-24T18:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers",
+        "observed_buffers",
+        "forecast_only_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers",
+        "observed_buffers",
+        "forecast_only_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T00:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T06:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T09:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T12:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T15:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-24T18:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers"
+      ]
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "required_stages": [
+        "raw_tracks",
+        "forecast_buffers",
+        "observed_buffers",
+        "forecast_only_buffers"
+      ]
+    }
+  ],
+  "source_assurance": "illustrative"
+}

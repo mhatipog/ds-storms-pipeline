@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "snapshot_description": "SYNTHETIC post-outage table snapshot: later derived rows exist, 20 earlier advisories missing; NOT OCHA production evidence",
+  "scanned_stages": [
+    "raw_tracks",
+    "forecast_buffers",
+    "observed_buffers",
+    "forecast_only_buffers",
+    "forecast_exposure",
+    "observed_exposure",
+    "forecast_only_exposure"
+  ],
+  "observations": [
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "raw_tracks",
+      "row_count": 1
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "AL062026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "raw_tracks",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "raw_tracks",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP162026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "raw_tracks",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_buffers",
+      "row_count": 1
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "observed_exposure",
+      "row_count": 3
+    },
+    {
+      "storm_id": "EP172026",
+      "issued_at": "2026-09-25T03:00:00Z",
+      "stage": "forecast_only_exposure",
+      "row_count": 3
+    }
+  ],
+  "snapshot_assurance": "illustrative",
+  "as_of": "2026-09-25T06:00:00Z"
+}
