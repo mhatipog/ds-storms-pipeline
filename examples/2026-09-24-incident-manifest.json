@@ -7,7 +7,7 @@
     {
       "storm_id": "AL062026",
       "issued_at": "2026-09-24T03:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.fstadv.016.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -16,7 +16,7 @@
     {
       "storm_id": "AL062026",
       "issued_at": "2026-09-24T09:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.fstadv.017.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -25,7 +25,7 @@
     {
       "storm_id": "AL062026",
       "issued_at": "2026-09-24T15:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/al06/al062026.fstadv.018.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -72,7 +72,7 @@
     {
       "storm_id": "EP152026",
       "issued_at": "2026-09-24T09:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.015.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -90,7 +90,7 @@
     {
       "storm_id": "EP152026",
       "issued_at": "2026-09-24T15:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.016.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -99,7 +99,7 @@
     {
       "storm_id": "EP152026",
       "issued_at": "2026-09-24T18:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.016.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"
@@ -128,7 +128,7 @@
     {
       "storm_id": "EP162026",
       "issued_at": "2026-09-24T09:00:00Z",
-      "source_ref": "https://github.com/OCHA-DAP/ds-storms-pipeline/pull/53",
+      "source_ref": "https://www.nhc.noaa.gov/archive/2026/ep16/ep162026.fstadv.017.shtml",
       "required_stages": [
         "raw_tracks",
         "forecast_buffers"

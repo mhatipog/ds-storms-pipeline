@@ -133,3 +133,6 @@ automatically determine what products the NHC should have published.
    Alerting, backfills, and production integrations require separate approval.
 
 See [`methodology.md`](methodology.md) and [`PR_PROPOSAL.md`](PR_PROPOSAL.md) for details.
+
+See [the partial primary-source archive verification](nhc-archive-verification.md)
+for individually cross-checked advisories; this does not validate production gaps.
