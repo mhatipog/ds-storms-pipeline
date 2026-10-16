@@ -320,3 +320,15 @@ the source catalog uses manually reviewed NOAA archive identities.
 **No actual October 2026 CurrentStorms snapshots or OCHA production records
 have been retrieved or validated.** Historical capture times and actual
 first-availability remain unknown; no backfills or production integrations run.
+
+
+### Real NOAA archive-index evidence and optional operational reconciliation
+
+For a bounded **1 October 2026** study, `storm_audit.archived_listing` audits
+38 visible NOAA archive index entries without pretending to have downloaded
+the JSON contents. `storm_audit.operational_evidence` optionally reconciles
+source-listed Nolo advisories with an authorized **read-only** historical or
+current-state raw-track export. Missing export data stays **unknown**; current
+state never proves what happened on the historical advisory date. Nothing
+runs against OCHA or triggers jobs. See
+[the evidence protocol](docs/noaa-real-index-and-operational-gate.md).
