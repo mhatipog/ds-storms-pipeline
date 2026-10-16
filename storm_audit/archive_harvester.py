@@ -20,20 +20,21 @@ from .core import iso
 from .snapshot_timeline import MAX_BYTES, noaa_directory_urls, parse_current_storms, SourceIntegrityError
 
 ARCHIVE_BASE = "https://www.nhc.noaa.gov/archive/activeJson/"
+ALLOWED_NOAA_HOSTS = frozenset({"www.nhc.noaa.gov", "prod-east-nhc.woc.noaa.gov"})
 
 
 class _NOAARedirectsOnly(HTTPRedirectHandler):
-    """Reject cross-host redirects before following them."""
+    """Reject cross-host redirects before following them, allowing only official NOAA hosts."""
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         p = urlsplit(newurl)
-        if p.scheme != "https" or p.netloc != "www.nhc.noaa.gov" or not p.path.startswith("/archive/activeJson/"):
+        if p.scheme != "https" or p.netloc not in ALLOWED_NOAA_HOSTS or not p.path.startswith("/archive/activeJson/"):
             raise SourceIntegrityError("NOAA archive download redirected outside allowlist")
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 def _download_noaa(url: str) -> bytes:
     p = urlsplit(url)
-    if (p.scheme != "https" or p.netloc != "www.nhc.noaa.gov" or
+    if (p.scheme != "https" or p.netloc not in ALLOWED_NOAA_HOSTS or
         not p.path.startswith("/archive/activeJson/") or p.query or p.fragment):
         raise SourceIntegrityError("Download requires official NOAA archive HTTPS URL")
     opener = build_opener(_NOAARedirectsOnly())

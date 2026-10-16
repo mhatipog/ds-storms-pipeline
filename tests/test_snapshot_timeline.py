@@ -87,7 +87,10 @@ def test_path_traversal_and_symlink_escape_rejected(tmp_path):
     with pytest.raises(SourceIntegrityError,match="relative"):
         read_snapshot_index(index,tmp_path)
     outside=tmp_path.parent/"outside.json";outside.write_text("{}")
-    link=tmp_path/"out.json";link.symlink_to(outside)
+    try:
+        link=tmp_path/"out.json";link.symlink_to(outside)
+    except OSError:
+        pytest.skip("Symlinks not permitted on this platform/privilege level")
     index["snapshots"][0]["path"]="out.json"
     with pytest.raises(SourceIntegrityError,match="escapes"):
         read_snapshot_index(index,tmp_path)

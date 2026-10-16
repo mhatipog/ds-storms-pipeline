@@ -173,3 +173,7 @@ gadm_*
 
 # Local benchmarks / scratch scripts (kept out of the repo)
 bench_*.py
+
+# Raw NOAA archive downloads (kept out of repo)
+noaa-archive/
+

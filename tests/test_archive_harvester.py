@@ -82,3 +82,32 @@ def test_day_time_stamp_is_not_from_html_last_modified(tmp_path):
     assert "retrieved_at" not in r["files"][0]
     assert "publication_at" not in r["files"][0]
     assert r["publication_time_assurance"]=="not_established"
+
+
+def test_redirect_handler_allows_official_noaa_hosts():
+    from storm_audit.archive_harvester import _NOAARedirectsOnly
+    handler = _NOAARedirectsOnly()
+    from unittest.mock import MagicMock
+    req = MagicMock()
+    req.get_method.return_value = "GET"
+    req.headers = {}
+    for host in ("www.nhc.noaa.gov", "prod-east-nhc.woc.noaa.gov"):
+        url = f"https://{host}/archive/activeJson/2026/CurrentStorms_2026-10-01-0232.json"
+        res = handler.redirect_request(req, None, 302, "Found", {}, url)
+        assert res is not None
+        assert res.full_url == url
+
+
+def test_redirect_handler_rejects_unauthorized_hosts():
+    from storm_audit.archive_harvester import _NOAARedirectsOnly
+    handler = _NOAARedirectsOnly()
+    req = None
+    unauthorized = [
+        "https://evil.example.com/archive/activeJson/2026/CurrentStorms_2026-10-01-0232.json",
+        "http://www.nhc.noaa.gov/archive/activeJson/2026/CurrentStorms_2026-10-01-0232.json",
+        "https://www.nhc.noaa.gov/other/path/CurrentStorms_2026-10-01-0232.json",
+    ]
+    for url in unauthorized:
+        with pytest.raises(SourceIntegrityError, match="outside allowlist"):
+            handler.redirect_request(req, None, 302, "Found", {}, url)
+

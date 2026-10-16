@@ -1,0 +1,84 @@
+{
+  "kind": "source_versus_optional_attested_export_not_production_audit",
+  "source_index": "https://www.nhc.noaa.gov/archive/2026/NOLO.shtml",
+  "source_listed_public_advisories": 8,
+  "operational_export_assurance": "no_operational_export",
+  "operational_metadata": {},
+  "counts": {
+    "operational_evidence_unavailable": 8
+  },
+  "records": [
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T00:00:00Z",
+      "product_id": "41A",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.041.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T03:00:00Z",
+      "product_id": "42",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.042.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T06:00:00Z",
+      "product_id": "42A",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.042.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T09:00:00Z",
+      "product_id": "43",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.043.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T12:00:00Z",
+      "product_id": "43A",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.043.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T15:00:00Z",
+      "product_id": "44",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.044.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T18:00:00Z",
+      "product_id": "44A",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public_a.044.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    },
+    {
+      "storm_id": "EP152026",
+      "issued_at": "2026-10-01T21:00:00Z",
+      "product_id": "45",
+      "source_url": "https://www.nhc.noaa.gov/archive/2026/ep15/ep152026.public.045.shtml",
+      "operational_row_count": null,
+      "operational_verdict": "operational_evidence_unavailable"
+    }
+  ],
+  "all_advisories_verified_processed": false,
+  "limitations": [
+    "NOAA product index proves a listed source product, not original feed availability.",
+    "No OCHA production database, job logs, or exposure tables were accessed by this tool.",
+    "Even rows in an attested historical snapshot do not prove original ingestion latency or downstream completeness.",
+    "A current-state export cannot prove what the pipeline held on the historical event date.",
+    "Advisory source and OCHA operational availability may differ; manual eligibility review required."
+  ]
+}
