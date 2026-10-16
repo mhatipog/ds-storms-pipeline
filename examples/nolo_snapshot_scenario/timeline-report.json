@@ -6,6 +6,7 @@
   "snapshot_count": 4,
   "expected_source_products": 8,
   "observed_product_count": 4,
+  "possible_revision_count": 0,
   "not_observed_count": 4,
   "identity_conflict_count": 0,
   "records": [
@@ -21,6 +22,8 @@
       "last_explicitly_different_at": "2026-10-01T21:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "not_observed_coverage_unknown",
       "interval_assurance": "no_positive_observation"
     },
@@ -36,6 +39,8 @@
       "last_explicitly_different_at": null,
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "observed_in_supplied_snapshots",
       "interval_assurance": "upper_bound_only_not_publication_time"
     },
@@ -51,6 +56,8 @@
       "last_explicitly_different_at": "2026-10-01T21:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "not_observed_coverage_unknown",
       "interval_assurance": "no_positive_observation"
     },
@@ -66,6 +73,8 @@
       "last_explicitly_different_at": "2026-10-01T03:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "observed_in_supplied_snapshots",
       "interval_assurance": "bounded_between_captures_not_publication_time"
     },
@@ -81,6 +90,8 @@
       "last_explicitly_different_at": "2026-10-01T21:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "not_observed_coverage_unknown",
       "interval_assurance": "no_positive_observation"
     },
@@ -96,6 +107,8 @@
       "last_explicitly_different_at": "2026-10-01T09:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "observed_in_supplied_snapshots",
       "interval_assurance": "bounded_between_captures_not_publication_time"
     },
@@ -111,6 +124,8 @@
       "last_explicitly_different_at": "2026-10-01T21:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "not_observed_coverage_unknown",
       "interval_assurance": "no_positive_observation"
     },
@@ -126,6 +141,8 @@
       "last_explicitly_different_at": "2026-10-01T15:30:00Z",
       "source_file_update_time": null,
       "identity_conflicts": [],
+      "source_revision_candidate": false,
+      "source_file_update_times": [],
       "status": "observed_in_supplied_snapshots",
       "interval_assurance": "bounded_between_captures_not_publication_time"
     }
@@ -135,6 +152,7 @@
     "The provided capture times are user-supplied metadata; SHA256 proves file integrity, not contemporaneous capture authenticity.",
     "NOAA's CurrentStorms is latest-per-storm: a product may exist and never appear in sparse captures.",
     "An absent storm cannot prove a public advisory was unavailable.",
+    "Different fileUpdateTime values for one advisory are possible revision signals, not confirmed changed bulletin content.",
     "The directory archive may omit snapshots or backfill files; no unconditional completeness claim is possible.",
     "No OCHA ingestion, Databricks processing or downstream impact is observed."
   ]

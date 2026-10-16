@@ -32,6 +32,9 @@ For each independently listed historical advisory, it reports:
   different public advisory, when available;
 - presence count, content hash, `fileUpdateTime` if present, and provenance;
 - conflicting number/time claims requiring investigation;
+- **possible in-place source revisions** when the same advisory identity is
+  observed with different NOAA `fileUpdateTime` values (a signal, not proof
+  of changed bulletin content or downstream geometry);
 - `not_observed_coverage_unknown` when no supplied snapshot has it.
 
 **An archived snapshot's `observed_at` is not proven first availability.**

@@ -199,6 +199,7 @@ def reconcile_timeline(advisory_manifest: dict, snapshots: dict) -> dict:
         last_prior_other = None
         positives = 0
         disagreements = []
+        update_times = []
         for snap in seq:
             at = snap["observed_at"]
             pa = snap["public_advisories"].get(storm_id)
@@ -210,10 +211,18 @@ def reconcile_timeline(advisory_manifest: dict, snapshots: dict) -> dict:
                     disagreements.append({"capture_at":at,"reported_issue":pa["issued_at"]})
                     continue
                 positives += 1
+                update_times.append({"observed_at":at,
+                                     "file_update_time":pa["file_update_time"]})
                 if first is None:
                     first = snap
             elif first is None:
                 last_prior_other = snap
+        distinct_update_times = sorted({x["file_update_time"] for x in update_times
+                                        if x["file_update_time"] is not None})
+        # A changed NOAA product-file timestamp for the *same* advisory
+        # identity may indicate an in-place revision. It is not proof
+        # that the textual advisory content or forecast changed.
+        revision_candidate = len(distinct_update_times) > 1
         result = {
             "storm_id": storm_id,
             "issued_at": issued_at,
@@ -228,7 +237,10 @@ def reconcile_timeline(advisory_manifest: dict, snapshots: dict) -> dict:
                 first["public_advisories"][storm_id]["file_update_time"] if first else None
             ),
             "identity_conflicts":disagreements,
+            "source_revision_candidate":revision_candidate,
+            "source_file_update_times":distinct_update_times,
             "status": ("identity_conflict_needs_review" if disagreements else
+                       "possible_source_revision_needs_review" if revision_candidate else
                        "observed_in_supplied_snapshots" if first else
                        "not_observed_coverage_unknown"),
             "interval_assurance":("bounded_between_captures_not_publication_time"
@@ -245,7 +257,8 @@ def reconcile_timeline(advisory_manifest: dict, snapshots: dict) -> dict:
         "evidence_assurance":modes[snapshots["mode"]],
         "snapshot_count":len(seq),
         "expected_source_products":len(records),
-        "observed_product_count":sum(r["status"]=="observed_in_supplied_snapshots" for r in records),
+        "observed_product_count":sum(r["first_observed_at"] is not None for r in records),
+        "possible_revision_count":sum(r["source_revision_candidate"] for r in records),
         "not_observed_count":sum(r["status"]=="not_observed_coverage_unknown" for r in records),
         "identity_conflict_count":sum(bool(r["identity_conflicts"]) for r in records),
         "records":records,
@@ -254,6 +267,7 @@ def reconcile_timeline(advisory_manifest: dict, snapshots: dict) -> dict:
             "The provided capture times are user-supplied metadata; SHA256 proves file integrity, not contemporaneous capture authenticity.",
             "NOAA's CurrentStorms is latest-per-storm: a product may exist and never appear in sparse captures.",
             "An absent storm cannot prove a public advisory was unavailable.",
+            "Different fileUpdateTime values for one advisory are possible revision signals, not confirmed changed bulletin content.",
             "The directory archive may omit snapshots or backfill files; no unconditional completeness claim is possible.",
             "No OCHA ingestion, Databricks processing or downstream impact is observed.",
         ],

@@ -203,3 +203,29 @@ def test_ocha_2023_example_excerpt_decodes_using_real_field_names():
         "product_id":"11", "issued_at":"2023-08-22T03:00:00Z",
         "file_update_time":"2023-08-22T02:55:52.439Z",
     }
+
+
+def test_same_advisory_source_file_update_can_signal_in_place_revision(tmp_path):
+    earlier=nolo("042","2026-10-01T03:00:00Z","2026-10-01T02:55:00Z")
+    later=nolo("042","2026-10-01T03:00:00Z","2026-10-01T03:08:34Z")
+    index=setup(tmp_path,[("2026-10-01T03:30:00Z",earlier),
+                          ("2026-10-01T03:45:00Z",later)])
+    report=reconcile_timeline(DAY,read_snapshot_index(index,tmp_path))
+    a=next(x for x in report["records"] if x["product_id"]=="42")
+    assert a["observed_in_snapshots"]==2
+    assert a["source_revision_candidate"] is True
+    assert a["status"]=="possible_source_revision_needs_review"
+    assert len(a["source_file_update_times"])==2
+    assert report["possible_revision_count"]==1
+    assert report["observed_product_count"]==1
+
+
+def test_repeated_identical_file_update_time_does_not_report_revision(tmp_path):
+    sample=nolo("042","2026-10-01T03:00:00Z","2026-10-01T02:55:00Z")
+    index=setup(tmp_path,[("2026-10-01T03:30:00Z",sample),
+                          ("2026-10-01T03:45:00Z",sample)])
+    report=reconcile_timeline(DAY,read_snapshot_index(index,tmp_path))
+    a=next(x for x in report["records"] if x["product_id"]=="42")
+    assert a["source_revision_candidate"] is False
+    assert a["status"]=="observed_in_supplied_snapshots"
+    assert report["possible_revision_count"]==0
