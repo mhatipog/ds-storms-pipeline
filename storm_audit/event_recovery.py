@@ -155,7 +155,16 @@ def replay_recovery(manifest: dict, start: str, until: str, *,
       "archive_scans":{"scheduled":len(scans),"succeeded":successful_arch,"failed":failed_arch},
       "hypothetical_heavy_batches":hypothetical_batches,
       "hypothetical_heavy_dispatches":dispatches,
+      # A simulated planning decision is NOT a real queue claim, launch or
+      # completed output. Preserve separate counts so a zero unplanned value
+      # cannot be misread as zero operational backlog.
+      "hypothetical_work_planned":len(seen_batched),
+      "hypothetical_work_unplanned":len(first_discovery)-len(seen_batched),
       "undispatched_work_at_window_end":len(first_discovery)-len(seen_batched),
+      "operational_work_executed":0,
+      "operational_work_verified":0,
+      "actual_queue_pending_at_window_end":sum(queue_status["counts"].get(state, 0)
+          for state in ("queued", "leased", "verification_required", "acknowledged")),
       "dispatch_policy":{"cooldown_minutes":dispatch_cooldown_minutes,
                          "max_heavy_batches_per_day":max_heavy_batches_per_day},
       "queue":{"state":queue_status["state"],"counts":queue_status["counts"]},
@@ -167,7 +176,7 @@ def replay_recovery(manifest: dict, start: str, until: str, *,
       "limitations":[
           "All products come only from the provided, possibly partial manifest; this does not establish actual NHC coverage.",
           "Archive availability and polling reliability are modeled, not measured; permanent source loss cannot be repaired by this algorithm.",
-          "The simulated batching is NOT Databricks execution; queue work is left pending and no completion is claimed.",
+          "The simulated batching is planning ONLY: no Databricks execution or verification occurs; the actual queue remains pending.",
           "Cost caps can defer downstream work; a nonzero undispatched backlog demands explicit liveness monitoring.",
           "Successful eventual discovery requires at least one successful archive scan after each source product becomes available.",
           "Separate WSP product stream, true downstream per-storm completion, and source correction handling still need reviewed integration.",
