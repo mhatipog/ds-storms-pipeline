@@ -20,6 +20,10 @@ import pandas as pd
 import requests
 from dotenv import load_dotenv
 from ocha_lens.utils.storm import calculate_wind_buffers_gdf, expand_quad_col
+from src.pipelines.nhc_obsv_lookup import (
+    index_obsv_times,
+    latest_obsv_at_or_before,
+)
 from sqlalchemy import text
 from tqdm import tqdm
 
@@ -2774,6 +2778,7 @@ def process_nhc_wsp_fcastonly_polygons(
 
     atcf_ids = [a for a in gdf_wsp["atcf_id"].dropna().unique()]
     obsv_lookup = _load_obsv_buffer_lookup(engine, atcf_ids)
+    obsv_times = index_obsv_times(obsv_lookup)
 
     if not overwrite:
         with engine.connect() as conn:
@@ -2811,7 +2816,7 @@ def process_nhc_wsp_fcastonly_polygons(
             )
 
     offset = timedelta(hours=_WSP_OBSV_OFFSET_HOURS)
-    no_obsv = offset_used = exact_used = already_done = 0
+    no_obsv = matched_obsv = already_done = 0
     batch = []
 
     for _, row in gdf_wsp.iterrows():
@@ -2836,21 +2841,18 @@ def process_nhc_wsp_fcastonly_polygons(
         result_geom = wsp_geom
 
         if atcf_id is not None:
-            obsv_geom = obsv_lookup.get((atcf_id, it + offset, kt))
+            # Advisory times are not guaranteed to be synoptic or exactly
+            # three hours apart. Use the newest observed swath inside the
+            # existing allowed [past, it + 3h] window for this storm/speed.
+            obsv_valid_time, obsv_geom = latest_obsv_at_or_before(
+                obsv_times, obsv_lookup, atcf_id, kt, it + offset
+            )
             if obsv_geom is not None:
-                obsv_valid_time = it + offset
-                offset_used += 1
-            else:
-                obsv_geom = obsv_lookup.get((atcf_id, it, kt))
-                if obsv_geom is not None:
-                    obsv_valid_time = it
-                    exact_used += 1
-                else:
-                    no_obsv += 1
-
-            if obsv_geom is not None:
+                matched_obsv += 1
                 diff = wsp_geom.difference(obsv_geom)
                 result_geom = None if diff.is_empty else diff
+            else:
+                no_obsv += 1
         else:
             no_obsv += 1
 
@@ -2877,9 +2879,9 @@ def process_nhc_wsp_fcastonly_polygons(
 
     # When called for a single issued_time, the parent loop logs progress —
     # only log a per-issuance summary when the run touched something.
-    if offset_used + exact_used + no_obsv > 0:
+    if matched_obsv + no_obsv > 0:
         logger.debug(
-            f"  {issued_time}: {offset_used} offset, {exact_used} exact, "
+            f"  {issued_time}: {matched_obsv} matched-obsv, "
             f"{no_obsv} no-obsv, {already_done} skipped"
         )
 
