@@ -160,6 +160,17 @@ is quarantined** rather than silently replacing processed input.
 Products with only URLs and no source-body hashes cannot detect revisions
 published at the same URL; their provenance is explicitly weaker.
 
+### Interpretation of replay dispatch counts
+
+The replay's `hypothetical_work_planned` is the number of source products
+covered by simulated batch **plans**, not actual starts or completions.
+`hypothetical_work_unplanned` is the number deferred by that hypothetical
+budget. Even if it is zero, `actual_queue_pending_at_window_end` remains
+nonzero until genuine work is executed and verified; both
+`operational_work_executed` and `operational_work_verified` remain **zero**
+in this offline-only research tool. Do not present a zero *planned* backlog as
+an operational all-clear.
+
 The `wsp` queue namespace currently provides isolation only, not a complete
 WSP data model. Real WSP archives and issuance cycles do not necessarily map
 to per-storm advisory IDs, so the full identity and completion contract for
