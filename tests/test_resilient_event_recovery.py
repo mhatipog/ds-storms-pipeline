@@ -370,3 +370,21 @@ def test_invalid_budget_rejected_fail_closed():
         replay_recovery(SEED,START,END,max_heavy_batches_per_day=0)
     with pytest.raises(ValueError,match="cooldown"):
         replay_recovery(SEED,START,END,dispatch_cooldown_minutes=-1)
+
+
+def test_same_url_new_noaa_product_body_hash_is_quarantined(tmp_path):
+    store=q(tmp_path)
+    rec={**nolo()[0],"content_sha256":"a"*64}
+    store.ingest([rec],now=NOW)
+    updated={**rec,"content_sha256":"b"*64}
+    assert store.ingest([updated],now=AFTER)["conflicts"]==1
+    assert store.get("track",key(rec))["status"]=="quarantined"
+    assert store.claim(now=AFTER)==[]
+
+
+def test_invalid_content_hash_fails_without_ingestion(tmp_path):
+    store=q(tmp_path)
+    bad={**nolo()[0],"content_sha256":"not-a-sha256"}
+    with pytest.raises(ValueError,match="content_sha256"):
+        store.ingest([bad],now=NOW)
+    assert store.get("track",key(bad)) is None

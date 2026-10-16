@@ -11,6 +11,7 @@ from contextlib import contextmanager
 from datetime import timedelta
 from hashlib import sha256
 import json
+import re
 from pathlib import Path
 import sqlite3
 import uuid
@@ -49,7 +50,15 @@ def _rows(records, stream):
         key = f"{storm}|{issued}|{product_id}"
         # Fingerprint preserves origin/version conflict visibility; not a
         # cryptographic attestation that a published product was fetched.
-        canonical = json.dumps([stream, storm, issued, product_id, ref], separators=(",", ":"))
+        content_sha256 = row.get("content_sha256")
+        if content_sha256 is not None:
+            if not isinstance(content_sha256, str) or not re.fullmatch(r"[0-9a-fA-F]{64}", content_sha256):
+                raise ValueError("content_sha256 must be a 64-digit hexadecimal digest")
+            content_sha256 = content_sha256.lower()
+        # Products can be silently revised at the SAME URL. Include the
+        # body hash when independently fetched; missing body hashes mean
+        # revisions at unchanged URLs are NOT detectable in this prototype.
+        canonical = json.dumps([stream, storm, issued, product_id, ref, content_sha256], separators=(",", ":"))
         digest = sha256(canonical.encode()).hexdigest()
         result.append((stream, key, storm, issued, product_id, ref, digest))
     # Fail closed if a single scan contains contradictory claims.
@@ -314,6 +323,7 @@ class AdvisoryQueue:
                 "latest_archive_scan_state":last_scan["state"] if last_scan else "never",
                 "limitations":[
                     "No independent source catalog: an empty queue is not evidence of complete NOAA coverage.",
+                    "URL-only records cannot reveal body revisions at unchanged NOAA URLs without an independently fetched content_sha256.",
                     "Complete archive flag requires external provenance review; API caller attestation is not independently checked here.",
                     "Worker acknowledgement is not proof of downstream per-product completion.",
                     "Existing OCHA completion markers are issuance-wide, not per-storm per-product verification.",
