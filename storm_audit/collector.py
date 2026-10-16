@@ -57,7 +57,12 @@ def collect_postgres(manifest: dict[str, Any], dsn: str, lookahead_hours: int = 
         with engine.connect() as conn:
             with conn.begin():
                 # PostgreSQL refuses INSERT/UPDATE/DELETE within this transaction.
-                conn.exec_driver_sql("SET TRANSACTION READ ONLY")
+                # All tables must be observed from the SAME PostgreSQL snapshot.
+                # READ COMMITTED (the default) would allow concurrent
+                # ingestion between SELECTs to create spurious gaps.
+                conn.exec_driver_sql(
+                    "SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY"
+                )
                 for stage, (table, time_col) in TABLES.items():
                     exists = conn.execute(text("SELECT to_regclass(:name)"), {"name": table}).scalar()
                     if exists is None:
