@@ -1,0 +1,121 @@
+{
+  "baseline_partial_oct1": {
+    "kind": "offline_policy_scenario_not_an_operational_result",
+    "window": {
+      "start": "2026-10-01T00:00:00Z",
+      "until": "2026-10-02T00:00:00Z"
+    },
+    "subset_size": 5,
+    "recorded": 5,
+    "not_discovered": 0,
+    "discovery_channel_counts": {
+      "feed": 3,
+      "archive": 2
+    },
+    "hypothetical_heavy_batches": 5,
+    "undispatched_work_at_window_end": 0,
+    "queue": {
+      "state": "coverage_unestablished",
+      "counts": {
+        "queued": 5
+      }
+    },
+    "assumptions": {
+      "feed": "latest-available-per-storm",
+      "archive": "all-provided-source-records-available-by-scan",
+      "feed_lag_minutes": 0,
+      "archive_lag_minutes": 0,
+      "reported_availability_is_scenario_not_measured": true
+    }
+  },
+  "blackout_recovered_next_day": {
+    "kind": "offline_policy_scenario_not_an_operational_result",
+    "window": {
+      "start": "2026-10-01T00:00:00Z",
+      "until": "2026-10-02T06:00:00Z"
+    },
+    "subset_size": 5,
+    "recorded": 5,
+    "not_discovered": 0,
+    "discovery_channel_counts": {
+      "feed": 2,
+      "archive": 3
+    },
+    "hypothetical_heavy_batches": 3,
+    "undispatched_work_at_window_end": 0,
+    "queue": {
+      "state": "coverage_unestablished",
+      "counts": {
+        "queued": 5
+      }
+    },
+    "assumptions": {
+      "feed": "latest-available-per-storm",
+      "archive": "all-provided-source-records-available-by-scan",
+      "feed_lag_minutes": 0,
+      "archive_lag_minutes": 0,
+      "reported_availability_is_scenario_not_measured": true
+    }
+  },
+  "late_archive_outside_window": {
+    "kind": "offline_policy_scenario_not_an_operational_result",
+    "window": {
+      "start": "2026-10-01T00:00:00Z",
+      "until": "2026-10-02T00:00:00Z"
+    },
+    "subset_size": 5,
+    "recorded": 0,
+    "not_discovered": 5,
+    "discovery_channel_counts": {
+      "feed": 0,
+      "archive": 0
+    },
+    "hypothetical_heavy_batches": 0,
+    "undispatched_work_at_window_end": 0,
+    "queue": {
+      "state": "coverage_unestablished",
+      "counts": {}
+    },
+    "assumptions": {
+      "feed": "latest-available-per-storm",
+      "archive": "all-provided-source-records-available-by-scan",
+      "feed_lag_minutes": 1440,
+      "archive_lag_minutes": 1440,
+      "reported_availability_is_scenario_not_measured": true
+    }
+  },
+  "cost_cap_one_batch_per_day": {
+    "kind": "offline_policy_scenario_not_an_operational_result",
+    "window": {
+      "start": "2026-10-01T00:00:00Z",
+      "until": "2026-10-02T00:00:00Z"
+    },
+    "subset_size": 5,
+    "recorded": 5,
+    "not_discovered": 0,
+    "discovery_channel_counts": {
+      "feed": 3,
+      "archive": 2
+    },
+    "hypothetical_heavy_batches": 1,
+    "undispatched_work_at_window_end": 4,
+    "queue": {
+      "state": "coverage_unestablished",
+      "counts": {
+        "queued": 5
+      }
+    },
+    "assumptions": {
+      "feed": "latest-available-per-storm",
+      "archive": "all-provided-source-records-available-by-scan",
+      "feed_lag_minutes": 0,
+      "archive_lag_minutes": 0,
+      "reported_availability_is_scenario_not_measured": true
+    }
+  },
+  "limitations": [
+    "This is a counterfactual replay on a partial NOAA source catalog, not real OCHA processing.",
+    "Archive discovery availability and outages are modeled.",
+    "Heavy runs are planned counters, not triggered."
+  ]
+}

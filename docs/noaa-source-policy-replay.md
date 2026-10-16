@@ -97,3 +97,11 @@ The importer prefers NOAA `public` and `public_a` etc., not forecast discussions
 6. Benchmark metadata polling + conditional processing **in real CU/DBX cost units** and review with maintainers before modifying any schedule.
 
 **Acceptance criterion:** An independent source inventory reconciled with actual ingestion evidence, a correct policy timeline, zero false blame for expected policy omissions, and reproducible measured downstream differences when they exist.
+
+## Safer event discovery and reconciliation prototype
+
+The latest-only metadata feed is a lossy hint, not a completeness source. For a
+failure-oriented, durable offline queue, scheduled archive catch-up, modeled
+batch/cost caps and recovery tests, see
+[reliable-event-reconciliation.md](reliable-event-reconciliation.md).
+This research prototype does not submit Databricks jobs or touch OCHA data.
