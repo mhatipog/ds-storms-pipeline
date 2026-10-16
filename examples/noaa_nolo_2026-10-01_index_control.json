@@ -1,0 +1,19 @@
+{
+  "source_index": "https://www.nhc.noaa.gov/archive/2026/NOLO.shtml",
+  "source_kind": "NHC annual storm archive public advisory index",
+  "storm_id": "EP152026",
+  "utc_date": "2026-10-01",
+  "expected_public_products": [
+    {"product_id": "41A", "issued_at": "2026-10-01T00:00:00Z"},
+    {"product_id": "42", "issued_at": "2026-10-01T03:00:00Z"},
+    {"product_id": "42A", "issued_at": "2026-10-01T06:00:00Z"},
+    {"product_id": "43", "issued_at": "2026-10-01T09:00:00Z"},
+    {"product_id": "43A", "issued_at": "2026-10-01T12:00:00Z"},
+    {"product_id": "44", "issued_at": "2026-10-01T15:00:00Z"},
+    {"product_id": "44A", "issued_at": "2026-10-01T18:00:00Z"},
+    {"product_id": "45", "issued_at": "2026-10-01T21:00:00Z"}
+  ],
+  "other_source_updates": [{"reported_at": "2026-10-01T12:35:00Z", "label": "update", "include_in_public_advisory_inventory": false}],
+  "verification_basis": "Manually transcribed and checked against the public advisory and intermediate advisory columns for Thu Oct 1, 2026 in the official NOAA storm archive. This is not a captured real-time feed and is not proof of exact availability times.",
+  "source_coverage": "bounded_index_transcription_not_independently_complete_archive"
+}
